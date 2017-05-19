@@ -15,4 +15,6 @@ Dir.glob("#{app_base}/app/services/users/*.rb").each { |i| require i }
 class App < Grape::API
   format :json
   formatter :json, Grape::Formatter::Rabl
+
+  mount Users
 end
