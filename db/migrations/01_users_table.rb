@@ -4,7 +4,6 @@ Sequel.migration do
       primary_key :id
 
       String :username, null: false
-      String :inst_token
       String :inst_uid
       String :inst_avatar
       String :jwt

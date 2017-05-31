@@ -25,8 +25,7 @@ class FindInstagramUser
     User.create(
         username:    user_data[:inst_username],
         inst_uid:    user_data[:inst_uid],
-        inst_avatar: user_data[:inst_avatar],
-        inst_token:  user_data[:inst_token]
+        inst_avatar: user_data[:inst_avatar]
     )
   end
 
