@@ -6,4 +6,14 @@ class Users < Grape::API
         user.exist? ? user.show_token : user.create_and_show_token :
         user.error_msg
   end
+
+  get 'me' do
+    me =  MyInstagramInfo.new(headers)
+    me.show_info
+  end
+
+  get 'users/:user_id' do
+    user = UserInstagramInfo.new(params, headers)
+    user.show_info
+  end
 end
