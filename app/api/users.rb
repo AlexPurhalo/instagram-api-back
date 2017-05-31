@@ -16,4 +16,9 @@ class Users < Grape::API
     user = UserInstagramInfo.new(params, headers)
     user.show_info
   end
+
+  get 'my_photos' do
+    photos = MyInstagramPhotos.new(headers)
+    photos.show_pictures
+  end
 end
