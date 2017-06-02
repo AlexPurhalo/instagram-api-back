@@ -17,4 +17,5 @@ class App < Grape::API
   formatter :json, Grape::Formatter::Rabl
 
   mount Users
+  mount Items
 end

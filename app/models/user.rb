@@ -1,4 +1,6 @@
 class User < Sequel::Model
+  one_to_many :items
+
   def before_create
     self.jwt ||= "#{last_record + 1}:#{SecureRandom.hex}"
     super

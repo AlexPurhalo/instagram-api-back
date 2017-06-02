@@ -29,12 +29,9 @@ class FindInstagramUser
     )
   end
 
-  def show_token
-    {
-        token: User.where(inst_uid: user_data[:inst_uid]).first.jwt,
-        inst_token: user_data[:inst_token]
-    }
-  end
+  def data; User.where(inst_uid: user_data[:inst_uid]).first; end
+
+  def inst_token; user_data[:inst_token]; end
 
   private
   def request_to_api

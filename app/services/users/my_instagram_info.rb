@@ -1,6 +1,6 @@
 class MyInstagramInfo
   def initialize(headers)
-    @current_user_id, @inst_token = headers['X-User-Id'], headers['Inst-Token']
+    @current_user_id, @inst_token = headers['X-User-Id'], headers['X-Instagram-Access-Token']
     @request, @user_data, @error_msg = nil
   end
 
