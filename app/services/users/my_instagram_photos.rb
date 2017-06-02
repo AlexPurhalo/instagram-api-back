@@ -25,7 +25,6 @@ class MyInstagramPhotos
       }
       inst_posts.push(data)
     end
-    binding.pry
   end
 
   def get_self_media_req

@@ -7,6 +7,7 @@ Sequel.migration do
       String :address
 
       foreign_key :item_id, :items
+      foreign_key :user_id, :users
     end
   end
 
