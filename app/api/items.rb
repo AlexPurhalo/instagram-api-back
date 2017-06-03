@@ -1,7 +1,14 @@
 class Items < Grape::API
   resources :items do
     get '/' do
-      User[headers['X-User-Id']].items
+      @items = User[headers['X-User-Id']].items
+      render rabl: 'items/all'
+    end
+
+    post '/' do
+      item_processing = CreateItem(headers)
+      @items = item_processing.show_all
+      render rabl: 'items/all'
     end
   end
 end

@@ -15,10 +15,11 @@ class FilterPhotos
     serialize_posts(request_data['data'])
     compare_photos
     !inst_posts.empty? && create_photos
-    show_user_photos
+    filter_and_show_user_photos
   end
 
   private
+
   def compare_photos
     photos = User[user_id].pictures
 
@@ -43,7 +44,11 @@ class FilterPhotos
     end
   end
 
-  def show_user_photos; User[user_id].pictures; end
+  def filter_and_show_user_photos;
+    photos = User[user_id].pictures
+    photos.map { |photo| !photo.item_id.nil? && photos.delete(photo)}
+    photos
+  end
 
   def serialize_posts(posts)
     posts.map do |post|
