@@ -46,8 +46,10 @@ class FilterPhotos
 
   def filter_and_show_user_photos;
     photos = User[user_id].pictures
-    photos.map { |photo| !photo.item_id.nil? && photos.delete(photo)}
-    photos
+    new_arr = []
+    # photos.map { |photo| !photo.item_id.nil? && photos.delete(photo)}
+    photos.each { |photo| photo.item_id.nil? && new_arr.push(photo) }
+    new_arr
   end
 
   def serialize_posts(posts)

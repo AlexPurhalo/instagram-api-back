@@ -6,7 +6,7 @@ class Items < Grape::API
     end
 
     post '/' do
-      item_processing = CreateItem(headers)
+      item_processing = CreateItem.new(headers, params)
       @items = item_processing.show_all
       render rabl: 'items/all'
     end

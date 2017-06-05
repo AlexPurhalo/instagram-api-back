@@ -1,2 +1,2 @@
 collection @photos
-attributes :id, :address, :item_id
+attributes :id, :address, :item_id, :inst_id
