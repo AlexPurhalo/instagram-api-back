@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-ruby '2.3.3'
 
 gem 'grape', '~> 0.18.0'
 
@@ -27,3 +26,4 @@ gem 'bcrypt', '~> 3.1', '>= 3.1.11'
 gem 'rack-cors', '~> 0.4.0', :require => 'rack/cors'
 
 gem 'rest-client'
+gem 'dotenv'

@@ -37,9 +37,9 @@ class FindInstagramUser
   def request_to_api
     begin
       request_to_api = RestClient.post('https://api.instagram.com/oauth/access_token', {
-          :client_id     => 'b2c21614a6854184af420c92673f46e9',
-          :client_secret => '62c8f80662f34492ac386352b7b49077',
-          :redirect_uri  => 'http://localhost:8080/',
+          :client_id     => ENV['CLIENT_ID'],
+          :client_secret => ENV['CLIENT_SECRET'],
+          :redirect_uri  => ENV['REDIRECT_URI'],
           :code          => session_code,
           :grant_type    => 'authorization_code'
       },  :accept        => :json)
