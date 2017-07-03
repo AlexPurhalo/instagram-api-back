@@ -1,6 +1,6 @@
 class Users < Grape::API
   get 'auth/instagram/callback' do
-    user = FindInstagramUser.new(params[:code])
+    user = FindInstagramUser.new(params[:code], params[:redirected])
 
     if user.setup_user_data && user.has_correct_data?
       !user.exist? && user.create

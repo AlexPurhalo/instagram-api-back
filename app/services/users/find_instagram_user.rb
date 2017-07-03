@@ -1,10 +1,10 @@
 class FindInstagramUser
-  def initialize(session_code)
-    @session_code = session_code
+  def initialize(session_code, redirect_uri)
+    @session_code, @redirect_uri = session_code, redirect_uri
     @request, @user_data, @error_msg = nil
   end
 
-  attr_reader :session_code, :request
+  attr_reader :session_code, :redirect_uri, :request
   attr_accessor :user_data, :error_msg
 
   # TODO: change error message
@@ -39,7 +39,7 @@ class FindInstagramUser
       request_to_api = RestClient.post('https://api.instagram.com/oauth/access_token', {
           :client_id     => ENV['CLIENT_ID'],
           :client_secret => ENV['CLIENT_SECRET'],
-          :redirect_uri  => ENV['REDIRECT_URI'],
+          :redirect_uri  => "#{redirect_uri}/",
           :code          => session_code,
           :grant_type    => 'authorization_code'
       },  :accept        => :json)
